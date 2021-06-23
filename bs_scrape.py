@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 import requests
 from openpyxl import Workbook
 import lucky_gunner
+import os
 
 wb = Workbook()
 ws = wb.active
@@ -12,10 +13,7 @@ ws.append(fieldnames)
 # Lucky Gunner / 6.5 Creedmoor
 lucky_gunner.lucky_gunn(ws, BeautifulSoup, requests)
 
-wb.save('ammo.xlsx')
-
-
-
-
-
+cwd = os.getcwd()
+wb.save(f'{cwd}/Desktop/ammo.xlsx')
+print(cwd)
 
